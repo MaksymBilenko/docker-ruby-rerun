@@ -13,7 +13,10 @@ case $1 in
 	mkdir ~/.ssh
 	chmod 700 ~/.ssh
 	ln -s /run/secrets/git/id.rsa ~/.ssh/id_rsa
-	echo 'yes' | git clone /run/secrets/git/id.rsa $2
+	SERVER=${2%:*}
+	SERVER=${SERVER#*@}
+	ssh-keyscan $SERVER >> ~/.ssh/known_hosts
+	git clone $2
 	while true; do
 		git pull
 		sleep 15
