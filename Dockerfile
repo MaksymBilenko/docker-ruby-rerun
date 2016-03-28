@@ -5,5 +5,5 @@ ENV				APP_MAIN			lib/main.rb
 ENV				RERUN_OPTS			''
 
 ADD				entrypoint.sh		/entrypoint.sh
-ENTRYPOINT		['/entrypoint.sh']
-CMD				['']
+ENTRYPOINT		["/entrypoint.sh"]
+CMD				[""]
