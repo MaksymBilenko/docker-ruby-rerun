@@ -7,21 +7,21 @@ case $1 in
 	sleep 30
 	cd $APP_HOME
 	bundle install --system
-	rerun "${RERUN_OPTS} ${APP_MAIN}"
+	rerun ${RERUN_OPTS} "ruby ${APP_MAIN}"
 	;;
 
 	'git-puller')
-	mkdir $APP_HOME
-	cd $APP_HOME
+	REPO=${2%.git}
+	REPO=${REPO#*/}
+	SERVER=${2%:*}
+	SERVER=${SERVER#*@}
 	mkdir ~/.ssh
 	chmod 700 ~/.ssh
 	cat /run/secrets/git/id.rsa > ~/.ssh/id_rsa
 	chmod 600 ~/.ssh/id_rsa
-	SERVER=${2%:*}
-	SERVER=${SERVER#*@}
 	ssh-keyscan $SERVER >> ~/.ssh/known_hosts
-	REPO=${2%.git}
-	REPO=${REPO#*/}
+
+	cd /opt
 	git clone $2
 	cd $REPO
 	while true; do
