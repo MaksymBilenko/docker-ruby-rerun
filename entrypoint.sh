@@ -22,7 +22,9 @@ case $1 in
 	ssh-keyscan $SERVER >> ~/.ssh/known_hosts
 
 	cd /opt
-	git clone $2
+	if [ ! -d $REPO ]; then
+		git clone $2
+	fi
 	cd $REPO
 	while true; do
 		git pull
