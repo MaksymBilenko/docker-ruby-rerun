@@ -36,7 +36,7 @@ case $1 in
 	sleep 15
 	cd $SHELLINABOX_HOME
 	bundle install --system
-	shellinaboxd -t -v -s "/:root:root:/:${SHELLINABOX_HOME}/${WRAPPER} GEM_HOME=${GEM_HOME} \${url}"
+	shellinaboxd -t -v -s "/:root:root:/:${SHELLINABOX_HOME}/${WRAPPER} \${url} GEM_HOME=${GEM_HOME}"
 	;;
 
 	*)
