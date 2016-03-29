@@ -35,7 +35,7 @@ case $1 in
 	'shellinabox')
 	sleep 15
 	cd $SHELLINABOX_HOME
-	bundle install --system
+	bundle install
 	shellinaboxd -t -v -s "/:root:root:${SHELLINABOX_HOME}:${WRAPPER}"
 	;;
 
