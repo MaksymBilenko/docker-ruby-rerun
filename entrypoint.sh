@@ -36,7 +36,7 @@ case $1 in
 	sleep 15
 	cd $SHELLINABOX_HOME
 	bundle install --system
-	./shellinaboxd -v -s '/:root:root:/tmp:$SHELLINABOX_HOME/lib/wrapper.rb ${url}'
+	shellinaboxd -t -v -s "/:root:root:/tmp:${SHELLINABOX_HOME}/${WRAPPER} \${url}"
 	;;
 
 	*)
