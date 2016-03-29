@@ -4,7 +4,7 @@ set -e
 case $1 in
 	'')
 	#initial sleep for puller
-	sleep 30
+	sleep 15
 	cd $APP_HOME
 	bundle install --system
 	rerun ${RERUN_OPTS} "ruby ${APP_MAIN}"
@@ -30,6 +30,13 @@ case $1 in
 		git pull
 		sleep 15
 	done
+	;;
+
+	'shellinabox')
+	sleep 15
+	cd $SHELLINABOX_HOME
+	bundle install --system
+	./shellinaboxd -v -s '/:root:root:/tmp:$SHELLINABOX_HOME/lib/wrapper.rb ${url}'
 	;;
 
 	*)
