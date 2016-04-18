@@ -27,7 +27,7 @@ case $1 in
 	fi
 	cd $REPO
 	while true; do
-		git pull
+		git pull || git reset --hard
 		sleep 15
 	done
 	;;
