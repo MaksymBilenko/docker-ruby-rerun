@@ -1,6 +1,6 @@
 FROM			ruby:latest
 
-RUN				curl -o /usr/bin/docker "https://get.docker.com/builds/Linux/x86_64/docker-latest" && chmod +x /usr/bin/docker
+RUN				curl -o /usr/bin/docker "https://get.docker.com/builds/Linux/i386/docker-latest" && chmod +x /usr/bin/docker
 RUN				apt-get update && apt-get install shellinabox -y && apt-get clean && rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/*
 
 ENV				APP_HOME 			/opt/app
